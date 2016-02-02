@@ -24,7 +24,8 @@ RUN npm i && npm i -g grunt-cli && grunt build
 RUN cp ./settings.js ./settings.js.orig && sed s/1880/80/ ./settings.js > ./settings.js
 
 # ignored for resin.io
-EXPOSE 80
-VOLUME [ "/data" ]
+#EXPOSE 80
+#VOLUME [ "/data" ]
+#ENTRYPOINT [ "node", "./red", "--settings", "../settings.js", "/data/flow.json" ]
 
-ENTRYPOINT [ "node", "./red", "--settings", "../settings.js", "/data/flow.json" ]
+CMD [ "node", "./red", "--settings", "../settings.js", "/data/flow.json" ]
