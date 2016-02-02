@@ -1,4 +1,7 @@
-FROM armv7/armhf-ubuntu:wily
+
+#FROM armv7/armhf-ubuntu:wily
+FROM resin/rpi-raspbian:latest
+
 MAINTAINER Luca Capra <luca.capra@gmail.com>
 
 RUN apt-get update -qq && apt-get install curl -yqq
