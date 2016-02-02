@@ -1,5 +1,8 @@
 
+#FROM ubuntu:wily
 #FROM armv7/armhf-ubuntu:wily
+
+#resin.io support
 FROM resin/rpi-raspbian:latest
 
 MAINTAINER Luca Capra <luca.capra@gmail.com>
