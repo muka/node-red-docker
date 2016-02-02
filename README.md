@@ -1,2 +1,2 @@
 # node-red-docker
-A simple Dockerfile which launch node-red on docker
+A simple docker launcher for node-red
