@@ -16,7 +16,7 @@ RUN apt-get update -qq \
   && apt-get autoremove -yqq && apt-get autoclean -qq \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN git config --global http.sslVerify true && git clone https://github.com/node-red/node-red.git node-red
+RUN git clone https://github.com/node-red/node-red.git node-red
 WORKDIR node-red/
 
 RUN npm i && npm i -g grunt-cli && grunt build

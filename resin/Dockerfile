@@ -7,7 +7,7 @@ RUN apt-get update -qq \
   && apt-get autoremove -yqq && apt-get autoclean -qq \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN curl https://codeload.github.com/node-red/node-red/zip/master > node-red.zip && unzip node-red.zip -d node-red
+RUN curl https://codeload.github.com/node-red/node-red/zip/master > node-red.zip && unzip node-red.zip -d ./ && mv node-red-master node-red
 
 WORKDIR node-red/
 
