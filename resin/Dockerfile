@@ -13,6 +13,6 @@ WORKDIR node-red/
 
 RUN npm i && npm i -g grunt-cli && grunt build
 
-RUN cp ./settings.js ./settings.js.orig && sed s/1880/80/ ./settings.js > ./settings.js
+RUN sed s/1880/80/ settings.js > settings.resin.js
 
-CMD [ "node", "./red", "--settings", "./settings.js", "--userDir", "/data", "/data/flow.json" ]
+CMD [ "node", "./red", "--settings", "settings.resin.js", "--userDir", "/data", "/data/flow.json" ]
