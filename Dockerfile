@@ -1,17 +1,21 @@
-# Dockerfile for Node-RED - pulls latest master code from git
-# Use the node.js v0.10.36 engine
-FROM node:0.12-slim
-MAINTAINER ceejay
- 
-# download latest stable node-red
-RUN npm install -g node-red
+FROM ubuntu:wily
+MAINTAINER Luca Capra <luca.capra@gmail.com>
 
-# use external storage for the user directory
-#VOLUME /root/.node-red
+RUN apt-get update -qq
+RUN apt-get install -yqq software-properties-common python-software-properties libicu-dev make g++ curl git
 
-# expose port
-EXPOSE 1880
- 
-# Set the default command to execute
-# when creating a new container
-CMD /usr/local/bin/node-red
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
+
+RUN apt-get install nodejs -yq
+RUN apt-get autoremove -yqq
+RUN apt-get autoclean -qq
+
+RUN git clone https://github.com/node-red/node-red.git node-red
+WORKDIR node-red/
+RUN npm i
+
+RUN sed s/1880/80/ ./settings.js > ../settings.js
+
+EXPOSE 80
+
+ENTRYPOINT node ./red --settings ../settings.js
