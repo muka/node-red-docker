@@ -1,4 +1,4 @@
-FROM ubuntu:wily
+FROM armv7/armhf-ubuntu:wily
 MAINTAINER Luca Capra <luca.capra@gmail.com>
 
 RUN apt-get update -qq && apt-get install curl -yqq
