@@ -14,7 +14,7 @@ RUN git clone https://github.com/node-red/node-red.git node-red
 WORKDIR node-red/
 RUN npm i
 
-RUN sed s/1880/80/ ./settings.js > git ../settings.js
+RUN sed s/1880/80/ ./settings.js > ../settings.js
 
 RUN npm install -g grunt-cli
 grunt build
