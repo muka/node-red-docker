@@ -1,2 +1,2 @@
-test1 app
-===
+# node-red-docker
+A simple Dockerfile which launch node-red on docker
