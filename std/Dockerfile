@@ -7,12 +7,12 @@ FROM armv7/armhf-ubuntu:wily
 
 MAINTAINER Luca Capra <luca.capra@gmail.com>
 
-RUN apt-get update -qq && apt-get install curl -yqq
+RUN apt-get update -qq && apt-get install curl ca-certificates apt-utils -yqq
 
 RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
 
 RUN apt-get update -qq \
-  && apt-get install -yqq python2.7 python2.7-dev libicu-dev make g++ git nodejs ca-certificates -yq \
+  && apt-get install -yqq python2.7 python2.7-dev libicu-dev make g++ git nodejs -yq \
   && apt-get autoremove -yqq && apt-get autoclean -qq \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
