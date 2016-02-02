@@ -17,7 +17,7 @@ RUN npm i
 RUN sed s/1880/80/ ./settings.js > ../settings.js
 
 RUN npm install -g grunt-cli
-grunt build
+RUN grunt build
 
 EXPOSE 80
 
